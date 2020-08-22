@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: openBD
+  description: API for accessing bibliographic information and images hosted by the openBD project
+  version: 0.1.0
+  contact:
+    url: "https://github.com/mitosagi/openbd-openapi"
+    name: Repository (unofficial)
+  license:
+    name: MIT
+    url: "https://opensource.org/licenses/MIT"
+servers:
+  - url: "https://api.openbd.jp/v1"
+tags:
+  - name: tag1
+    description: tag
+paths:
+  /get:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Book"
+      operationId: get-get
+      parameters:
+        - schema:
+            type: array
+            items:
+              type: string
+          in: query
+          name: isbn
+          description: comma-separated array of ISBN numbers
+          required: true
+      description: get the information about the books
+components:
+  schemas:
+    Book:
+      type: object
+      additionalProperties: false
