@@ -2,43 +2,77 @@ openapi: 3.0.0
 info:
   title: openBD
   description: API for accessing bibliographic information and images hosted by the openBD project
-  version: 0.1.0
+  version: 0.2.0
   contact:
-    url: "https://github.com/mitosagi/openbd-openapi"
+    url: 'https://github.com/mitosagi/openbd-openapi'
     name: Repository (unofficial)
   license:
     name: MIT
-    url: "https://opensource.org/licenses/MIT"
+    url: 'https://opensource.org/licenses/MIT'
 servers:
-  - url: "https://api.openbd.jp/v1"
+  - url: 'https://api.openbd.jp/v1'
 tags:
   - name: tag1
-    description: tag
+    description: tag1
 paths:
   /get:
     get:
-      summary: Your GET endpoint
+      summary: Get bibliographic information
       tags: []
+      operationId: get-get
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Book"
-      operationId: get-get
+                  $ref: '#/components/schemas/Book'
       parameters:
         - schema:
-            type: array
-            items:
-              type: string
+            type: string
           in: query
           name: isbn
-          description: comma-separated array of ISBN numbers
+          description: 'comma-separated list of ISBN numbers up to 1,000 items'
           required: true
-      description: get the information about the books
+      description: 'get up to 1,000 bibliographic information'
+    post:
+      summary: Get bibliographic information
+      tags: []
+      operationId: post-get
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: isbn
+          description: 'comma-separated list of ISBN numbers up to 10,000 items'
+          required: true
+      description: 'get up to 10,000 bibliographic information'
+  /coverage:
+    get:
+      summary: Get coverage
+      operationId: get-coverage
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      description: 'get the list of the bibliographies in this database'
 components:
   schemas:
     Book:

@@ -2,8 +2,6 @@
 
 Unofficial openapi specification for [openBD](https://openbd.jp/).
 
-Currently only the get method in `/get` is implemented.
-
 ## Usage
 
 The openapi specification is `./bin/openapi.yaml`.
@@ -23,3 +21,17 @@ npm run gen -- java
 # 'java' is an example. You can specify any language/framework in the output list
 # The code of the API client is generated in the ./gen folder.
 ```
+
+## API Specification Overview
+
+All URIs are relative to *https://api.openbd.jp/v1*
+
+| HTTP request      | Description                                |
+| ----------------- | ------------------------------------------ |
+| **GET** /coverage | Get coverage                               |
+| **GET** /get      | Get up to 1,000 bibliographic information  |
+| **POST** /get     | Get up to 10,000 bibliographic information |
+
+## License
+
+[MIT License](https://opensource.org/licenses/MIT)
