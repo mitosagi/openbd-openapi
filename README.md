@@ -1,25 +1,42 @@
 # openbd-openapi
 
-Unofficial openapi specification for [openBD](https://openbd.jp/).
+Unofficial OpenAPI specification for [openBD](https://openbd.jp/).
 
 ## Usage
 
-The openapi specification is `./bin/openapi.yaml`.
+The OpenAPI specification is `./bin/openapi.yaml`.
 
-Client code generation
+### Client code generation
+
+Install
 
 ```bash
-# install
 git clone https://github.com/mitosagi/openbd-openapi
 npm install
+```
 
+Get lang/framework list
+
+```bash
 npm run gen-list
-# Outputs a list of languages/frameworks that are supported by the code generator.
-# See https://github.com/OpenAPITools/openapi-generator for details.
+```
 
+Output is a list of languages/frameworks that are supported by the code generator. See [GitHub - OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator) for details.
+
+Code generation
+
+```bash
 npm run gen -- java
-# 'java' is an example. You can specify any language/framework in the output list
-# The code of the API client is generated in the ./gen folder.
+```
+
+'java' is an example. You can specify any language/framework in the output list. The code of the API client is generated in the `./gen` folder.
+
+### Update specification
+
+When `partial-api.yaml` or [the official JSON Schema](https://api.openbd.jp/v1/schema?pretty) is changed, it is necessary to regenerate `./bin/openapi.yaml`.
+
+```bash
+npm run create
 ```
 
 ## API Specification Overview
