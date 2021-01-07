@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@openapitools/openapi-generator-cli": "^1.0.15-4.3.1",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "js-yaml": "^3.14.0",
     "json-schema-to-openapi-schema": "^0.4.0"
   }
